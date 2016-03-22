@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		2EA030811CA124D600EF2777 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA030801CA124D600EF2777 /* AppDelegate.swift */; };
-		2EA030831CA124D600EF2777 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA030821CA124D600EF2777 /* ViewController.swift */; };
 		2EA030861CA124D600EF2777 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EA030841CA124D600EF2777 /* Main.storyboard */; };
 		2EA030881CA124D600EF2777 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EA030871CA124D600EF2777 /* Assets.xcassets */; };
 		2EA0308B1CA124D600EF2777 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EA030891CA124D600EF2777 /* LaunchScreen.storyboard */; };
+		2EA030971CA1497B00EF2777 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA030961CA1497B00EF2777 /* Alarm.swift */; };
+		2EA0309B1CA174E400EF2777 /* AlarmClockMainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA0309A1CA174E400EF2777 /* AlarmClockMainTableViewController.swift */; };
+		2EA0309D1CA1909A00EF2777 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA0309C1CA1909A00EF2777 /* LocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2EA0307D1CA124D500EF2777 /* AlarmClockDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlarmClockDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EA030801CA124D600EF2777 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2EA030821CA124D600EF2777 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2EA030851CA124D600EF2777 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2EA030871CA124D600EF2777 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2EA0308A1CA124D600EF2777 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2EA0308C1CA124D600EF2777 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EA030961CA1497B00EF2777 /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		2EA0309A1CA174E400EF2777 /* AlarmClockMainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmClockMainTableViewController.swift; sourceTree = "<group>"; };
+		2EA0309C1CA1909A00EF2777 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +59,10 @@
 			isa = PBXGroup;
 			children = (
 				2EA030801CA124D600EF2777 /* AppDelegate.swift */,
-				2EA030821CA124D600EF2777 /* ViewController.swift */,
 				2EA030841CA124D600EF2777 /* Main.storyboard */,
+				2EA0309C1CA1909A00EF2777 /* LocationViewController.swift */,
+				2EA0309A1CA174E400EF2777 /* AlarmClockMainTableViewController.swift */,
+				2EA030961CA1497B00EF2777 /* Alarm.swift */,
 				2EA030871CA124D600EF2777 /* Assets.xcassets */,
 				2EA030891CA124D600EF2777 /* LaunchScreen.storyboard */,
 				2EA0308C1CA124D600EF2777 /* Info.plist */,
@@ -135,8 +141,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EA030831CA124D600EF2777 /* ViewController.swift in Sources */,
 				2EA030811CA124D600EF2777 /* AppDelegate.swift in Sources */,
+				2EA0309B1CA174E400EF2777 /* AlarmClockMainTableViewController.swift in Sources */,
+				2EA030971CA1497B00EF2777 /* Alarm.swift in Sources */,
+				2EA0309D1CA1909A00EF2777 /* LocationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
