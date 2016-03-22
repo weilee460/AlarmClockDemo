@@ -126,8 +126,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="选择位置" id="B0e-o4-aHK">
-                        <barButtonItem key="rightBarButtonItem" title="保存" id="ORJ-is-qLU"/>
+                        <barButtonItem key="rightBarButtonItem" title="保存" id="ORJ-is-qLU">
+                            <connections>
+                                <action selector="saveLocation:" destination="tXi-I5-t6N" id="UMa-bo-fQO"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="g10-J1-sw2" id="2KX-i5-jqL"/>
+                        <outlet property="targetView" destination="drj-LP-joZ" id="xKy-Hb-V59"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OWU-P1-sZd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -17,27 +17,40 @@ protocol MapViewControllerDelegate {
 }
 
 class LocationViewController: UIViewController {
+    
+    var delegate: MapViewControllerDelegate? = nil
 
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var targetView: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        //
+        targetView.layer.cornerRadius = 40.0
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func saveLocation(sender: UIBarButtonItem) {
+        
+        //save
+        if ( delegate  != nil ) {
+            
+            let center = mapView.centerCoordinate
+            
+            let targetViewRegion = mapView.convertRect(targetView.bounds, toRegionFromView: targetView)
+            
+            //every degree of latitude delta corresponds to 110km
+            let radius = targetViewRegion.span.latitudeDelta  * 110 * 1000
+            
+            //create a unique UUID
+            let uuid = NSUUID().UUIDString
+            
+            let region = CLCircularRegion(center: center, radius: radius, identifier: uuid)
+            self.delegate!.returnedRegion(region)
+        }
+        
     }
-    */
 
 }
