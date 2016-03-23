@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--闹钟⏰-->
@@ -85,6 +86,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="lin-Su-5VS" kind="show" id="YSJ-1H-A6K"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -101,7 +105,43 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uk8-Hi-2Iu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2442" y="716"/>
+            <point key="canvasLocation" x="2500" y="711"/>
+        </scene>
+        <!--选择闹钟声音文件-->
+        <scene sceneID="cnX-Ob-jFz">
+            <objects>
+                <viewController id="Snt-Y3-4VA" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cpF-4W-ZAX"/>
+                        <viewControllerLayoutGuide type="bottom" id="2H6-aU-yq3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cTK-ow-OPA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AX-vf-FMr">
+                                <rect key="frame" x="255" y="285" width="90" height="30"/>
+                                <state key="normal" title="选择闹钟声音"/>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JEo-24-q2D">
+                                <rect key="frame" x="20" y="72" width="560" height="205"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="JEo-24-q2D" secondAttribute="trailing" id="14h-4q-vnr"/>
+                            <constraint firstItem="9AX-vf-FMr" firstAttribute="centerX" secondItem="cTK-ow-OPA" secondAttribute="centerX" id="EIV-L4-usU"/>
+                            <constraint firstItem="9AX-vf-FMr" firstAttribute="top" secondItem="JEo-24-q2D" secondAttribute="bottom" constant="8" symbolic="YES" id="Gtv-Ui-FuF"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="JEo-24-q2D" secondAttribute="leading" id="ckw-Qy-wDY"/>
+                            <constraint firstItem="JEo-24-q2D" firstAttribute="top" secondItem="cpF-4W-ZAX" secondAttribute="bottom" constant="8" symbolic="YES" id="ecT-Fq-OeL"/>
+                            <constraint firstItem="9AX-vf-FMr" firstAttribute="centerY" secondItem="cTK-ow-OPA" secondAttribute="centerY" id="pVq-IV-kqu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="选择闹钟声音文件" id="0We-Od-AzI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="blu-4T-bkP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4097" y="1151"/>
         </scene>
         <!--选择位置-->
         <scene sceneID="7gb-51-iwJ">
@@ -115,17 +155,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="g10-J1-sw2">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                            </mapView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="drj-LP-joZ">
-                                <rect key="frame" x="180" y="236" width="240" height="128"/>
+                                <rect key="frame" x="180" y="268" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="g10-J1-sw2">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="g10-J1-sw2" firstAttribute="top" secondItem="HFA-fs-KxE" secondAttribute="bottom" id="1oi-Uk-Guz"/>
+                            <constraint firstAttribute="trailing" secondItem="g10-J1-sw2" secondAttribute="trailing" id="ExQ-ld-nfw"/>
+                            <constraint firstItem="g10-J1-sw2" firstAttribute="leading" secondItem="t8y-2G-iqC" secondAttribute="leading" id="NdL-Fh-LDy"/>
+                            <constraint firstItem="g10-J1-sw2" firstAttribute="bottom" secondItem="fk3-2h-5lf" secondAttribute="top" id="S7e-pz-9xi"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="选择位置" id="B0e-o4-aHK">
+                        <barButtonItem key="leftBarButtonItem" title="返回" id="Znf-Fh-zAP">
+                            <connections>
+                                <segue destination="MRW-2P-uGU" kind="show" id="7Mc-v8-L4y"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="保存" id="ORJ-is-qLU">
                             <connections>
                                 <action selector="saveLocation:" destination="tXi-I5-t6N" id="UMa-bo-fQO"/>
@@ -139,34 +190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OWU-P1-sZd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4130" y="518"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="JMc-lM-HR5">
-            <objects>
-                <viewController id="0Vi-MO-d6k" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hgJ-zl-GH7"/>
-                        <viewControllerLayoutGuide type="bottom" id="KgL-G7-UOs"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="XAL-8S-gah">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ndb-Rg-FAu">
-                                <rect key="frame" x="20" y="72" width="560" height="206"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FXM-F0-5WG">
-                                <rect key="frame" x="277" y="286" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6nF-Ip-fMt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3391" y="1245"/>
+            <point key="canvasLocation" x="2928" y="-77"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wUB-Ai-lJ9">
@@ -220,7 +244,28 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f5D-So-iPs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3391" y="518"/>
+            <point key="canvasLocation" x="3752" y="307"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="D3R-o4-7kQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lin-Su-5VS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hMO-cd-wE0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Snt-Y3-4VA" kind="relationship" relationship="rootViewController" id="Yd6-lx-J3i"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zzj-LT-MF4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3285" y="1151"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="oIR-wx-7NT"/>
+    </inferredMetricsTieBreakers>
 </document>
