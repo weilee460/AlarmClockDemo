@@ -44,7 +44,7 @@
         <!--添加闹钟⏰-->
         <scene sceneID="PUg-gn-Xva">
             <objects>
-                <tableViewController id="MRW-2P-uGU" sceneMemberID="viewController">
+                <tableViewController id="MRW-2P-uGU" customClass="AddAlarmClockTableViewController" customModule="AlarmClockDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="FQA-G4-mS4">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,36 +58,89 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="emc-wX-3PV" id="t6S-BG-O5l">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="br7-iG-hPU">
+                                                    <rect key="frame" x="8" y="8" width="600" height="27.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="br7-iG-hPU" firstAttribute="centerY" secondItem="t6S-BG-O5l" secondAttribute="centerY" id="7DS-MC-r0W"/>
+                                                <constraint firstItem="br7-iG-hPU" firstAttribute="centerX" secondItem="t6S-BG-O5l" secondAttribute="centerX" id="7uZ-eK-68J"/>
+                                                <constraint firstAttribute="topMargin" secondItem="br7-iG-hPU" secondAttribute="top" id="Gxg-mJ-0zU"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="br7-iG-hPU" secondAttribute="trailing" constant="-16" id="MMv-oV-Mgd"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="br7-iG-hPU" secondAttribute="leading" id="a9D-HH-fj4"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="7uZ-eK-68J"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="位置" id="slV-ys-gTO">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="5uC-zS-87x">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mapCell" id="5uC-zS-87x">
                                         <rect key="frame" x="0.0" y="164" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5uC-zS-87x" id="JLu-4k-93v">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击此处，选择位置" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m81-h6-WYW">
+                                                    <rect key="frame" x="8" y="11.5" width="354" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="m81-h6-WYW" firstAttribute="centerY" secondItem="JLu-4k-93v" secondAttribute="centerY" id="D9u-om-XYg"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="m81-h6-WYW" secondAttribute="trailing" constant="230" id="vKs-7j-XhK"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="m81-h6-WYW" secondAttribute="leading" id="wKC-Mn-Yf1"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="gr6-bk-fpW" kind="showDetail" id="qD4-GO-zZe"/>
+                                            <segue destination="tXi-I5-t6N" kind="show" identifier="map" id="ddW-qn-R8l"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="声音" id="UAB-0B-ICz">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="lIY-Md-zan">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="soundCell" id="lIY-Md-zan">
                                         <rect key="frame" x="0.0" y="236" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lIY-Md-zan" id="qlL-cZ-REU">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击此处，选择声音" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fae-3o-ga9">
+                                                    <rect key="frame" x="8" y="0.0" width="408" height="44"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7V5-LF-jvR">
+                                                    <rect key="frame" x="8" y="0.0" width="240" height="44"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="7V5-LF-jvR" secondAttribute="trailing" constant="344" id="C5E-hr-AqV"/>
+                                                <constraint firstItem="7V5-LF-jvR" firstAttribute="top" secondItem="Fae-3o-ga9" secondAttribute="top" id="DVl-0p-aHY"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="7V5-LF-jvR" secondAttribute="leading" id="EAB-Ph-6g8"/>
+                                                <constraint firstItem="7V5-LF-jvR" firstAttribute="centerY" secondItem="qlL-cZ-REU" secondAttribute="centerY" id="FCD-Fc-Vh7"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Fae-3o-ga9" secondAttribute="trailing" constant="176" id="IRS-KW-Phk"/>
+                                                <constraint firstItem="Fae-3o-ga9" firstAttribute="top" secondItem="qlL-cZ-REU" secondAttribute="topMargin" constant="-8" id="IW3-ng-guz"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="Fae-3o-ga9" secondAttribute="leading" id="K8X-SV-vGP"/>
+                                                <constraint firstItem="Fae-3o-ga9" firstAttribute="centerY" secondItem="qlL-cZ-REU" secondAttribute="centerY" id="S78-wI-ccK"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="lin-Su-5VS" kind="show" id="YSJ-1H-A6K"/>
+                                            <segue destination="Snt-Y3-4VA" kind="show" id="tON-L8-Iyp"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -99,15 +152,30 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="添加闹钟⏰" id="VBD-ZN-tHs">
-                        <barButtonItem key="leftBarButtonItem" title="取消" id="NAp-FG-HsY"/>
-                        <barButtonItem key="rightBarButtonItem" title="保存" id="a3l-xP-qGE"/>
+                        <barButtonItem key="leftBarButtonItem" title="取消" id="NAp-FG-HsY">
+                            <connections>
+                                <action selector="cancel:" destination="MRW-2P-uGU" id="oav-Ik-eVj"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="保存" id="a3l-xP-qGE">
+                            <connections>
+                                <action selector="save:" destination="MRW-2P-uGU" id="STY-g0-5ug"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="mapCell" destination="5uC-zS-87x" id="onP-6V-fih"/>
+                        <outlet property="mapCellLabel" destination="m81-h6-WYW" id="pXi-fo-BSg"/>
+                        <outlet property="mediaCell" destination="lIY-Md-zan" id="V9G-5K-DP9"/>
+                        <outlet property="mediaImageView" destination="7V5-LF-jvR" id="sNF-kr-dZS"/>
+                        <outlet property="nameTextField" destination="br7-iG-hPU" id="wFT-yg-T0l"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uk8-Hi-2Iu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2500" y="711"/>
         </scene>
-        <!--选择闹钟声音文件-->
+        <!--View Controller-->
         <scene sceneID="cnX-Ob-jFz">
             <objects>
                 <viewController id="Snt-Y3-4VA" sceneMemberID="viewController">
@@ -118,30 +186,12 @@
                     <view key="view" contentMode="scaleToFill" id="cTK-ow-OPA">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AX-vf-FMr">
-                                <rect key="frame" x="255" y="285" width="90" height="30"/>
-                                <state key="normal" title="选择闹钟声音"/>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JEo-24-q2D">
-                                <rect key="frame" x="20" y="72" width="560" height="205"/>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="JEo-24-q2D" secondAttribute="trailing" id="14h-4q-vnr"/>
-                            <constraint firstItem="9AX-vf-FMr" firstAttribute="centerX" secondItem="cTK-ow-OPA" secondAttribute="centerX" id="EIV-L4-usU"/>
-                            <constraint firstItem="9AX-vf-FMr" firstAttribute="top" secondItem="JEo-24-q2D" secondAttribute="bottom" constant="8" symbolic="YES" id="Gtv-Ui-FuF"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="JEo-24-q2D" secondAttribute="leading" id="ckw-Qy-wDY"/>
-                            <constraint firstItem="JEo-24-q2D" firstAttribute="top" secondItem="cpF-4W-ZAX" secondAttribute="bottom" constant="8" symbolic="YES" id="ecT-Fq-OeL"/>
-                            <constraint firstItem="9AX-vf-FMr" firstAttribute="centerY" secondItem="cTK-ow-OPA" secondAttribute="centerY" id="pVq-IV-kqu"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="选择闹钟声音文件" id="0We-Od-AzI"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="blu-4T-bkP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4097" y="1151"/>
+            <point key="canvasLocation" x="3276" y="1157"/>
         </scene>
         <!--选择位置-->
         <scene sceneID="7gb-51-iwJ">
@@ -171,17 +221,8 @@
                             <constraint firstItem="g10-J1-sw2" firstAttribute="bottom" secondItem="fk3-2h-5lf" secondAttribute="top" id="S7e-pz-9xi"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="选择位置" id="B0e-o4-aHK">
-                        <barButtonItem key="leftBarButtonItem" title="返回" id="Znf-Fh-zAP">
-                            <connections>
-                                <segue destination="MRW-2P-uGU" kind="show" id="7Mc-v8-L4y"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="保存" id="ORJ-is-qLU">
-                            <connections>
-                                <action selector="saveLocation:" destination="tXi-I5-t6N" id="UMa-bo-fQO"/>
-                            </connections>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" title="选择位置" id="QwW-k8-jla">
+                        <barButtonItem key="rightBarButtonItem" title="保存" id="TWh-o2-7UO"/>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="g10-J1-sw2" id="2KX-i5-jqL"/>
@@ -190,7 +231,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OWU-P1-sZd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2928" y="-77"/>
+            <point key="canvasLocation" x="3215" y="272"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wUB-Ai-lJ9">
@@ -228,44 +269,5 @@
             </objects>
             <point key="canvasLocation" x="1630" y="716"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="WdQ-jd-Msh">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gr6-bk-fpW" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yA3-2P-Rda">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="tXi-I5-t6N" kind="relationship" relationship="rootViewController" id="eBt-fv-nwL"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="f5D-So-iPs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3752" y="307"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="D3R-o4-7kQ">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lin-Su-5VS" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hMO-cd-wE0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Snt-Y3-4VA" kind="relationship" relationship="rootViewController" id="Yd6-lx-J3i"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zzj-LT-MF4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3285" y="1151"/>
-        </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="oIR-wx-7NT"/>
-    </inferredMetricsTieBreakers>
 </document>

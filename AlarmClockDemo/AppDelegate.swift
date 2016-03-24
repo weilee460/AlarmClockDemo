@@ -11,16 +11,48 @@ import CoreLocation
 import MediaPlayer
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
+    var alarms: Dictionary<String, Alarm> = Dictionary(minimumCapacity: 0)
+    let locationManager: CLLocationManager = CLLocationManager()
+    var masterViewController : AlarmClockMainTableViewController!
 
-
+    func ios9() -> Bool {
+        
+        print("iOS " + UIDevice.currentDevice().systemVersion)
+        
+        if ( UIDevice.currentDevice().systemVersion == "9.3" ) {
+            return true
+        } else {
+            return false
+        }
+        
+    }
+    
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+        //Set location delegate
+        locationManager.delegate = self
+        
+        if ( ios9() ) {
+                locationManager.requestAlwaysAuthorization()
+            
+        }
+        
+        //get the master view controller
+        let nav = application.windows[0].rootViewController as! UINavigationController
+        masterViewController = nav.viewControllers[0] as! AlarmClockMainTableViewController
+        
+        return true
+    }
+    
+    /*
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         return true
     }
-
+     */
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -41,6 +73,60 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func addAlarm(alarm:Alarm!) {
+        
+        alarms.updateValue(alarm, forKey: alarm.location.identifier)
+        locationManager.startMonitoringForRegion(alarm.location)
+        
+        
+        masterViewController.objects.append(alarm)
+        masterViewController.tableView.reloadData()
+    }
+    
+    func launchAlarmViewController(alarm:Alarm!) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let alarmVC = storyboard.instantiateViewControllerWithIdentifier("alarm") as! AlarmViewController
+        alarmVC.alarm = alarm
+        let nav = UINavigationController(rootViewController: alarmVC)
+        masterViewController.presentViewController(nav, animated: true, completion: {})
+        
+    }
+    
+    func alarmForRegionIdentifier(identifier:String!) -> Alarm? {
+        
+        if let alarm = alarms[identifier]! as? Alarm {
+            return alarm
+        } else {
+            return nil
+        }
+        
+    }
+    
+    
+    //MARK: - CLLocationManagerDelegate
+    func locationManager(manager:CLLocationManager, didEnterRegion region:CLRegion) {
+        
+        print("Entered Region " + region.identifier );
+        if let alarm = alarmForRegionIdentifier(region.identifier) {
+            launchAlarmViewController(alarm)
+        }
+        
+    }
+    
+    func locationManager(manager:CLLocationManager, didExitRegion region:CLRegion) {
+        
+        print("Exited Region " + region.identifier );
+        if let alarm = alarmForRegionIdentifier(region.identifier) {
+            launchAlarmViewController(alarm)
+        }
+        
+    }
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print("Error monitoring regions ")
     }
 
 

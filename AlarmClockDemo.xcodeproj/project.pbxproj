@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E8BDC671CA3B850009AE9CD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8BDC661CA3B850009AE9CD /* MapKit.framework */; };
 		2EA030811CA124D600EF2777 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA030801CA124D600EF2777 /* AppDelegate.swift */; };
 		2EA030861CA124D600EF2777 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EA030841CA124D600EF2777 /* Main.storyboard */; };
 		2EA030881CA124D600EF2777 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EA030871CA124D600EF2777 /* Assets.xcassets */; };
@@ -14,9 +15,12 @@
 		2EA030971CA1497B00EF2777 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA030961CA1497B00EF2777 /* Alarm.swift */; };
 		2EA0309B1CA174E400EF2777 /* AlarmClockMainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA0309A1CA174E400EF2777 /* AlarmClockMainTableViewController.swift */; };
 		2EA0309D1CA1909A00EF2777 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA0309C1CA1909A00EF2777 /* LocationViewController.swift */; };
+		2EA030A11CA2606B00EF2777 /* AddAlarmClockTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA030A01CA2606B00EF2777 /* AddAlarmClockTableViewController.swift */; };
+		2EA030A31CA2696900EF2777 /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA030A21CA2696900EF2777 /* AlarmViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E8BDC661CA3B850009AE9CD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2EA0307D1CA124D500EF2777 /* AlarmClockDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlarmClockDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EA030801CA124D600EF2777 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EA030851CA124D600EF2777 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -26,6 +30,8 @@
 		2EA030961CA1497B00EF2777 /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		2EA0309A1CA174E400EF2777 /* AlarmClockMainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmClockMainTableViewController.swift; sourceTree = "<group>"; };
 		2EA0309C1CA1909A00EF2777 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		2EA030A01CA2606B00EF2777 /* AddAlarmClockTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAlarmClockTableViewController.swift; sourceTree = "<group>"; };
+		2EA030A21CA2696900EF2777 /* AlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E8BDC671CA3B850009AE9CD /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +49,7 @@
 		2EA030741CA124D500EF2777 = {
 			isa = PBXGroup;
 			children = (
+				2E8BDC661CA3B850009AE9CD /* MapKit.framework */,
 				2EA0307F1CA124D600EF2777 /* AlarmClockDemo */,
 				2EA0307E1CA124D500EF2777 /* Products */,
 			);
@@ -60,8 +68,10 @@
 			children = (
 				2EA030801CA124D600EF2777 /* AppDelegate.swift */,
 				2EA030841CA124D600EF2777 /* Main.storyboard */,
+				2EA030A01CA2606B00EF2777 /* AddAlarmClockTableViewController.swift */,
 				2EA0309C1CA1909A00EF2777 /* LocationViewController.swift */,
 				2EA0309A1CA174E400EF2777 /* AlarmClockMainTableViewController.swift */,
+				2EA030A21CA2696900EF2777 /* AlarmViewController.swift */,
 				2EA030961CA1497B00EF2777 /* Alarm.swift */,
 				2EA030871CA124D600EF2777 /* Assets.xcassets */,
 				2EA030891CA124D600EF2777 /* LaunchScreen.storyboard */,
@@ -102,6 +112,11 @@
 				TargetAttributes = {
 					2EA0307C1CA124D500EF2777 = {
 						CreatedOnToolsVersion = 7.3;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -143,7 +158,9 @@
 			files = (
 				2EA030811CA124D600EF2777 /* AppDelegate.swift in Sources */,
 				2EA0309B1CA174E400EF2777 /* AlarmClockMainTableViewController.swift in Sources */,
+				2EA030A31CA2696900EF2777 /* AlarmViewController.swift in Sources */,
 				2EA030971CA1497B00EF2777 /* Alarm.swift in Sources */,
+				2EA030A11CA2606B00EF2777 /* AddAlarmClockTableViewController.swift in Sources */,
 				2EA0309D1CA1909A00EF2777 /* LocationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,6 +313,7 @@
 				2EA030911CA124D600EF2777 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
